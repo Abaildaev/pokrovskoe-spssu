@@ -294,7 +294,7 @@
         el.classList.toggle("is-active", el.getAttribute("data-room-id") === room.id);
       });
       detailBox.innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:0.5rem;margin-block-end:0.45rem;">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0.35rem 0.65rem;margin-block-end:0.45rem;">
           <strong>${room.name}</strong>
           <span class="tabular" style="font-weight:700;color:var(--accent-pine);">${room.area}</span>
         </div>

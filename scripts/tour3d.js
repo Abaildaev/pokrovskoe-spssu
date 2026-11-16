@@ -13,6 +13,7 @@
     const viewButtons = Array.from(document.querySelectorAll("[data-tour-view]"));
     const lightButtons = Array.from(document.querySelectorAll("[data-tour-light]"));
     const zoomButtons = Array.from(document.querySelectorAll("[data-tour-zoom]"));
+    const touchLockBtn = document.querySelector("[data-tour-touchlock]");
     const resetBtn = document.querySelector("[data-tour-reset]");
 
     if (!wrap || !pinsLayer || !infoBox || typeof window.THREE === "undefined") {
@@ -805,7 +806,7 @@
         <div class="tour-room-grid">${pinPills}</div>
         ${activeBlock}
         <div class="tour-help">
-          Управление: вращайте пальцем или мышью (${currentViewMode === "inside" ? "панорама 360°" : "облёт модели"}), масштаб — щипком, колёсиком или кнопками + / −.
+          Управление: мышью или горизонтальным свайпом; для вертикального наклона на телефоне нажмите «Вращать 3D», масштаб — + / −.
         </div>
       `;
 
@@ -884,12 +885,23 @@
       renderInfo(null);
     }
 
-    // Pointer Orbit / 360° Drag + Multi-Touch Pinch Zoom + Button & Wheel Zoom
+    // Pointer Orbit / 360° Drag + Multi-Touch Pinch Zoom + Touch Scroll Safety
     const activePointers = new Map();
     let lastPinchDist = null;
     let isDragging = false;
+    let dragEngaged = false;
+    let isTouchLocked = false;
     let lastX = 0;
     let lastY = 0;
+
+    function setTouchLocked(locked) {
+      isTouchLocked = Boolean(locked);
+      wrap.classList.toggle("is-touch-locked", isTouchLocked);
+      if (touchLockBtn) {
+        touchLockBtn.setAttribute("aria-pressed", String(isTouchLocked));
+        touchLockBtn.textContent = isTouchLocked ? "Листать страницу" : "Вращать 3D";
+      }
+    }
 
     function adjustZoom(delta) {
       if (currentViewMode === "inside") {
@@ -908,22 +920,34 @@
     }
 
     renderer.domElement.addEventListener("pointerdown", (e) => {
-      activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      activePointers.set(e.pointerId, {
+        x: e.clientX,
+        y: e.clientY,
+        startX: e.clientX,
+        startY: e.clientY,
+        type: e.pointerType
+      });
       if (activePointers.size === 1) {
         isDragging = true;
+        dragEngaged = e.pointerType === "mouse" || isTouchLocked;
         lastX = e.clientX;
         lastY = e.clientY;
         lastPinchDist = null;
+        if (dragEngaged) {
+          renderer.domElement.setPointerCapture(e.pointerId);
+        }
       } else if (activePointers.size === 2) {
         isDragging = false;
+        dragEngaged = false;
         lastPinchDist = getPinchDistance();
       }
-      renderer.domElement.setPointerCapture(e.pointerId);
     });
 
     renderer.domElement.addEventListener("pointermove", (e) => {
-      if (activePointers.has(e.pointerId)) {
-        activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      const existing = activePointers.get(e.pointerId);
+      if (existing) {
+        existing.x = e.clientX;
+        existing.y = e.clientY;
       }
       if (activePointers.size === 2) {
         const dist = getPinchDistance();
@@ -933,18 +957,36 @@
         lastPinchDist = dist;
         return;
       }
-      if (!isDragging) return;
+      if (!isDragging || !existing) return;
+
+      if (!dragEngaged) {
+        const totalDx = Math.abs(e.clientX - existing.startX);
+        const totalDy = Math.abs(e.clientY - existing.startY);
+        if (totalDx < 8 && totalDy < 8) return;
+        if (totalDy >= totalDx * 0.9) {
+          // Yield to vertical page scroll without rotating camera
+          isDragging = false;
+          dragEngaged = false;
+          return;
+        }
+        dragEngaged = true;
+        lastX = e.clientX;
+        lastY = e.clientY;
+      }
+
       const dx = e.clientX - lastX;
-      const dy = e.clientY - lastY;
+      const dy = e.pointerType === "mouse" || isTouchLocked ? e.clientY - lastY : 0;
       lastX = e.clientX;
       lastY = e.clientY;
 
       const factor = currentViewMode === "inside" ? -0.0045 : 0.007;
       camGoal.theta -= dx * factor;
-      camGoal.phi = Math.max(
-        currentViewMode === "inside" ? 0.85 : 0.28,
-        Math.min(currentViewMode === "inside" ? 2.15 : 1.48, camGoal.phi - dy * factor)
-      );
+      if (dy !== 0) {
+        camGoal.phi = Math.max(
+          currentViewMode === "inside" ? 0.85 : 0.28,
+          Math.min(currentViewMode === "inside" ? 2.15 : 1.48, camGoal.phi - dy * factor)
+        );
+      }
       if (reducedMotion) {
         camState.theta = camGoal.theta;
         camState.phi = camGoal.phi;
@@ -954,14 +996,16 @@
     const endDrag = (e) => {
       activePointers.delete(e.pointerId);
       if (activePointers.size < 2) lastPinchDist = null;
-      if (activePointers.size === 1) {
-        const [rem] = activePointers.values();
-        isDragging = true;
-        lastX = rem.x;
-        lastY = rem.y;
-      } else {
+      if (e.type === "pointercancel" || activePointers.size !== 1) {
         isDragging = false;
+        dragEngaged = false;
+        return;
       }
+      const [rem] = activePointers.values();
+      isDragging = true;
+      dragEngaged = rem.type === "mouse" || isTouchLocked;
+      lastX = rem.x;
+      lastY = rem.y;
     };
     renderer.domElement.addEventListener("pointerup", endDrag);
     renderer.domElement.addEventListener("pointercancel", endDrag);
@@ -992,11 +1036,15 @@
         adjustZoom(dir === "in" ? -1.8 : 1.8);
       })
     );
+    if (touchLockBtn) {
+      touchLockBtn.addEventListener("click", () => setTouchLocked(!isTouchLocked));
+    }
     if (resetBtn) {
       resetBtn.addEventListener("click", () => {
         const cfg = SCENES[currentSceneKey];
         camera.fov = cfg.defaultView === "inside" ? 68 : 44;
         camera.updateProjectionMatrix();
+        setTouchLocked(false);
         setViewMode(cfg.defaultView, false);
         renderInfo(null);
       });
