@@ -1,0 +1,332 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 820" width="680" height="820" font-family="PT Sans, Arial, Helvetica, sans-serif">
+                <title>Генеральный план модернизации Покровского СПССУ (Масштаб 1:1000)</title>
+                <defs>
+                  <pattern id="grid-10m" width="24" height="24" patternUnits="userSpaceOnUse">
+                    <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#ebe7dc" stroke-width="0.7"/>
+                  </pattern>
+                </defs>
+
+                <rect width="680" height="820" fill="#fbfaf7"/>
+                <rect width="680" height="820" fill="url(#grid-10m)"/>
+
+                <!-- Land Parcel Polygon -->
+                <path
+                  d="M 72,66 L 315,66 L 315,94 L 353,94 L 353,66 L 609,66 L 601,394 L 366,394 L 366,556 L 402,556 L 395,768 L 104,768 Z"
+                  fill="#ffffff"
+                  stroke="#121619"
+                  stroke-width="2.4"
+                />
+
+                <!-- Northeast Free Sector Highlight -->
+                <path
+                  d="M 358,128 L 598,128 L 594,386 L 366,386 Z"
+                  fill="#f7f4ee"
+                  stroke="#b8ab99"
+                  stroke-width="1.2"
+                  stroke-dasharray="5 4"
+                />
+                <text x="480" y="144" text-anchor="middle" font-size="9.5" font-weight="700" fill="#646e78">
+                  СВОБОДНЫЙ СЕКТОР 107 × 137 м (~1,4 га)
+                </text>
+
+                <!-- Perimeter Dimensions -->
+                <text x="193" y="54" text-anchor="middle" font-size="11" font-weight="700" fill="#434c54">101,5 м</text>
+                <text x="334" y="54" text-anchor="middle" font-size="10" font-weight="700" fill="#245b68">Въезд 15,7 м</text>
+                <text x="481" y="54" text-anchor="middle" font-size="11" font-weight="700" fill="#434c54">107,0 м (до угла В)</text>
+                <text x="624" y="232" text-anchor="middle" font-size="11" font-weight="700" fill="#434c54" transform="rotate(90 624 232)">137,0 м (В → Г)</text>
+                <text x="485" y="412" text-anchor="middle" font-size="11" font-weight="700" fill="#434c54">99,5 м (Г → Д)</text>
+                <text x="381" y="482" text-anchor="middle" font-size="10.5" font-weight="700" fill="#434c54" transform="rotate(90 381 482)">68,0 м</text>
+                <text x="385" y="548" text-anchor="middle" font-size="9.5" font-weight="700" fill="#434c54">15,0 м</text>
+                <text x="415" y="664" text-anchor="middle" font-size="10.5" font-weight="700" fill="#434c54" transform="rotate(90 415 664)">106,0 м (до угла Е)</text>
+                <text x="250" y="786" text-anchor="middle" font-size="11" font-weight="700" fill="#434c54">100,7 м (Южная граница А — Е)</text>
+                <text x="52" y="418" text-anchor="middle" font-size="11.5" font-weight="700" fill="#434c54" transform="rotate(-90 52 418)">293,0 м (Западная граница)</text>
+
+                <!-- Corner Letters -->
+                <text x="90" y="782" font-size="11" font-weight="700" fill="#121619">А</text>
+                <text x="403" y="782" font-size="11" font-weight="700" fill="#121619">Е</text>
+                <text x="614" y="68" font-size="11" font-weight="700" fill="#121619">В</text>
+                <text x="608" y="401" font-size="11" font-weight="700" fill="#121619">Г</text>
+                <text x="372" y="388" font-size="11" font-weight="700" fill="#121619">Д</text>
+
+                <!-- Compass -->
+                <g transform="translate(646, 86)" aria-hidden="true">
+                  <line x1="0" y1="36" x2="0" y2="-16" stroke="#121619" stroke-width="1.8"/>
+                  <polygon points="0,-24 -5,-10 5,-10" fill="#121619"/>
+                  <text x="0" y="-29" text-anchor="middle" font-size="11" font-weight="700" fill="#121619">С</text>
+                  <text x="0" y="50" text-anchor="middle" font-size="10" font-weight="600" fill="#646e78">Ю</text>
+                </g>
+
+                <!-- LAYER: Boulevard & Paths -->
+                <g>
+                  <path
+                    d="M 215,180 L 352,180 L 352,262 L 584,262"
+                    fill="none"
+                    stroke="#dce6ea"
+                    stroke-width="16"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M 215,180 L 352,180 L 352,262 L 584,262"
+                    fill="none"
+                    stroke="#245b68"
+                    stroke-width="2"
+                    stroke-dasharray="6 4"
+                  />
+                  <path
+                    d="M 352,262 L 320,262 L 320,520 L 238,520"
+                    fill="none"
+                    stroke="#dce6ea"
+                    stroke-width="10"
+                    stroke-linecap="round"
+                  />
+                  <path d="M 200,535 L 200,612" fill="none" stroke="#dce6ea" stroke-width="8"/>
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <rect x="372" y="246" width="212" height="32" rx="4" fill="#e7f0f2" stroke="#245b68" stroke-width="1.6"/>
+                    <circle cx="394" cy="262" r="7" fill="#245b68"/>
+                    <circle cx="562" cy="262" r="7" fill="#245b68"/>
+                    <text x="478" y="266" text-anchor="middle" font-size="9.5" font-weight="700" fill="#173e47">
+                      БУЛЬВАР И БЕСЕДКИ
+                    </text>
+                  </g>
+                </g>
+
+                <!-- LAYER: Existing Capital Buildings (C-shape left: D top, A middle, A1 bottom; center: B and V) -->
+                <g>
+                  <!-- Top Wing: Administrative Building (former Medpoint, Litera D) -->
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <rect x="114" y="118" width="80" height="34" rx="2" fill="#245b68" stroke="#122f36" stroke-width="1.8"/>
+                    <text x="154" y="133" text-anchor="middle" font-size="8.2" font-weight="700" fill="#ffffff">Админ. корпус (Д)</text>
+                    <text x="154" y="145" text-anchor="middle" font-size="7.6" fill="#e7f0f2">284,05 м²</text>
+                    <text x="158" y="109" text-anchor="middle" font-size="7.5" font-weight="700" fill="#245b68">
+                      Вместо медпункта — Админ. корпус
+                    </text>
+                  </g>
+
+                  <!-- Middle Block: Block 1 (Litera A, 2 floors) moved to middle -->
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <rect x="152" y="154" width="42" height="48" rx="2" fill="#1b324b" stroke="#0d1b2b" stroke-width="1.8"/>
+                    <text x="173" y="172" text-anchor="middle" font-size="8.5" font-weight="700" fill="#ffffff">Блок 1</text>
+                    <text x="173" y="183" text-anchor="middle" font-size="8.5" font-weight="700" fill="#ffffff">(А)</text>
+                    <text x="173" y="195" text-anchor="middle" font-size="7.2" fill="#dbe6f2">453,8 м²</text>
+                    <text x="118" y="174" text-anchor="middle" font-size="7.3" font-weight="700" fill="#1b324b">Медпункт+ЛФК</text>
+                    <text x="118" y="186" text-anchor="middle" font-size="7.3" font-weight="700" fill="#1b324b">2 эт: Муж. (20)</text>
+                  </g>
+
+                  <!-- Bottom Wing: Block 2 (Litera A1, 2 floors) -->
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <rect x="94" y="204" width="100" height="36" rx="2" fill="#2c4563" stroke="#0d1b2b" stroke-width="1.8"/>
+                    <text x="144" y="220" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">Блок 2 (А¹)</text>
+                    <text x="144" y="233" text-anchor="middle" font-size="8.2" fill="#dbe6f2">305,04 м² (2 эт.)</text>
+                    <text x="144" y="253" text-anchor="middle" font-size="7.6" font-weight="700" fill="#2c4563">
+                      1 эт: Игровые + Соцпед.
+                    </text>
+                    <text x="144" y="264" text-anchor="middle" font-size="7.6" font-weight="700" fill="#2c4563">
+                      2 эт: Женское (20)
+                    </text>
+                  </g>
+
+                  <!-- Building B (Dining Hall) -->
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <path
+                      d="M 244,140 L 252,140 L 252,132 L 262,132 L 262,140 L 274,140 L 274,132 L 284,132 L 284,140 L 292,140 L 292,236 L 244,236 Z"
+                      fill="#2c4563"
+                      stroke="#0d1b2b"
+                      stroke-width="1.6"
+                    />
+                    <text x="268" y="185" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Б</text>
+                    <text x="268" y="200" text-anchor="middle" font-size="8.8" fill="#e9eef4">Столовая</text>
+                    <text x="268" y="213" text-anchor="middle" font-size="8.5" fill="#e9eef4">451,8 м²</text>
+                  </g>
+
+                  <!-- Building V (Full single Bathhouse & Laundry rectangle in center) -->
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <path
+                      d="M 242,292 L 258,292 L 258,284 L 268,284 L 268,292 L 284,292 L 284,394 L 242,394 Z"
+                      fill="#3d5670"
+                      stroke="#121619"
+                      stroke-width="1.6"
+                    />
+                    <text x="263" y="338" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">В</text>
+                    <text x="263" y="354" text-anchor="middle" font-size="8.8" fill="#e9eef4">Баня</text>
+                    <text x="263" y="367" text-anchor="middle" font-size="8.2" fill="#e9eef4">540,0 м²</text>
+                  </g>
+
+                  <!-- Building L (Warehouse -> Workshops) -->
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <rect x="116" y="502" width="122" height="30" rx="2" fill="#843920" stroke="#4f2213" stroke-width="1.6"/>
+                    <text x="177" y="520" text-anchor="middle" font-size="8.4" font-weight="700" fill="#ffffff">
+                      Л: Мастерские (300,7 м²)
+                    </text>
+                  </g>
+
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <rect x="442" y="90" width="136" height="26" rx="2" fill="#899299" stroke="#434c54" stroke-width="1.4"/>
+                    <text x="510" y="106" text-anchor="middle" font-size="7.4" font-weight="700" fill="#ffffff">Котельная / Сущ. постройка (Г)</text>
+                  </g>
+                  <rect x="410" y="78" width="20" height="14" rx="2" fill="#899299" stroke="#434c54" stroke-width="1.2"/>
+                  <rect x="584" y="96" width="12" height="22" rx="2" fill="#899299" stroke="#434c54" stroke-width="1.2"/>
+                </g>
+
+                <!-- LAYER: Engineering, KPP & Brand Shop -->
+                <g>
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <rect x="317" y="72" width="18" height="16" rx="2" fill="#3d5670" stroke="#121619" stroke-width="1.4"/>
+                    <text x="326" y="83" text-anchor="middle" font-size="8.5" font-weight="700" fill="#ffffff">К</text>
+                  </g>
+
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <rect x="357" y="68" width="46" height="18" rx="2" fill="#a91d24" stroke="#641015" stroke-width="1.4"/>
+                    <text x="380" y="80" text-anchor="middle" font-size="8.2" font-weight="700" fill="#ffffff">Магазин</text>
+                  </g>
+
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <rect x="248" y="674" width="34" height="32" rx="2" fill="#3d5670" stroke="#121619" stroke-width="1.5"/>
+                    <text x="265" y="694" text-anchor="middle" font-size="8.2" font-weight="700" fill="#ffffff">Е / Е(в)</text>
+                    <text x="265" y="720" text-anchor="middle" font-size="9" font-weight="700" fill="#3d5670">
+                      Инж. узел (Вода / Электро)
+                    </text>
+                  </g>
+                </g>
+
+                <!-- LAYER: 10 New Family Houses -->
+                <g>
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <rect x="368" y="160" width="222" height="72" rx="4" fill="#f7ece8" fill-opacity="0.72" stroke="#9e472a" stroke-width="1.3" stroke-dasharray="4 3"/>
+                    <rect x="376" y="182" width="36" height="38" rx="2" fill="#9e472a" stroke="#5e2918" stroke-width="1.4"/>
+                    <text x="394" y="205" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">1М</text>
+                    <rect x="418" y="182" width="36" height="38" rx="2" fill="#9e472a" stroke="#5e2918" stroke-width="1.4"/>
+                    <text x="436" y="205" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">2М</text>
+                    <rect x="460" y="182" width="36" height="38" rx="2" fill="#9e472a" stroke="#5e2918" stroke-width="1.4"/>
+                    <text x="478" y="205" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">3М</text>
+                    <rect x="502" y="182" width="36" height="38" rx="2" fill="#9e472a" stroke="#5e2918" stroke-width="1.4"/>
+                    <text x="520" y="205" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">4М</text>
+                    <rect x="544" y="182" width="36" height="38" rx="2" fill="#9e472a" stroke="#5e2918" stroke-width="1.4"/>
+                    <text x="562" y="205" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">5М</text>
+                    <text x="479" y="174" text-anchor="middle" font-size="9.5" font-weight="700" fill="#702f1a">
+                      МУЖСКИЕ ДОМА (5 × 6 чел. = 30 чел.)
+                    </text>
+                  </g>
+
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <rect x="368" y="294" width="222" height="78" rx="4" fill="#f7ece8" fill-opacity="0.72" stroke="#9e472a" stroke-width="1.3" stroke-dasharray="4 3"/>
+                    <rect x="376" y="306" width="36" height="38" rx="2" fill="#b45a3c" stroke="#5e2918" stroke-width="1.4"/>
+                    <text x="394" y="329" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">6Ж</text>
+                    <rect x="418" y="306" width="36" height="38" rx="2" fill="#b45a3c" stroke="#5e2918" stroke-width="1.4"/>
+                    <text x="436" y="329" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">7Ж</text>
+                    <rect x="460" y="306" width="36" height="38" rx="2" fill="#b45a3c" stroke="#5e2918" stroke-width="1.4"/>
+                    <text x="478" y="329" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">8Ж</text>
+                    <rect x="502" y="306" width="36" height="38" rx="2" fill="#b45a3c" stroke="#5e2918" stroke-width="1.4"/>
+                    <text x="520" y="329" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">9Ж</text>
+                    <rect x="544" y="306" width="36" height="38" rx="2" fill="#b45a3c" stroke="#5e2918" stroke-width="1.4"/>
+                    <text x="562" y="329" text-anchor="middle" font-size="9.5" font-weight="700" fill="#ffffff">10Ж</text>
+                    <text x="479" y="362" text-anchor="middle" font-size="9.5" font-weight="700" fill="#702f1a">
+                      ЖЕНСКИЕ ДОМА (5 × 6 чел. = 30 чел.)
+                    </text>
+                  </g>
+                </g>
+
+                <!-- LAYER: Agro / Greenhouses Zone -->
+                <g>
+                  <g
+                   
+                   
+                   
+                   
+                   
+                  >
+                    <rect x="122" y="566" width="246" height="90" rx="4" fill="#eef4ed" stroke="#4b7f52" stroke-width="1.5" stroke-dasharray="5 3"/>
+                    <rect x="136" y="584" width="96" height="24" rx="2" fill="#4b7f52" stroke="#2d5232" stroke-width="1.2"/>
+                    <text x="184" y="600" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff">ТЕПЛИЦА №1</text>
+                    <rect x="136" y="616" width="96" height="24" rx="2" fill="#4b7f52" stroke="#2d5232" stroke-width="1.2"/>
+                    <text x="184" y="632" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff">ТЕПЛИЦА №2</text>
+                    <circle cx="272" cy="596" r="11" fill="#70a376" stroke="#2d5232"/>
+                    <circle cx="305" cy="596" r="11" fill="#70a376" stroke="#2d5232"/>
+                    <circle cx="338" cy="596" r="11" fill="#70a376" stroke="#2d5232"/>
+                    <circle cx="272" cy="630" r="11" fill="#70a376" stroke="#2d5232"/>
+                    <circle cx="305" cy="630" r="11" fill="#70a376" stroke="#2d5232"/>
+                    <circle cx="338" cy="630" r="11" fill="#70a376" stroke="#2d5232"/>
+                    <text x="305" y="650" text-anchor="middle" font-size="8.5" font-weight="700" fill="#2d5232">
+                      Плодовый сад и огород
+                    </text>
+                  </g>
+                </g>
+              </svg>
