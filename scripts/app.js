@@ -348,8 +348,7 @@
       const heavyInCorp = 40;
       const waitingOrTransitional = Math.max(0, 100 - heavyInCorp - residentsInHouses);
 
-      const pedagoguesMin = Math.max(1, Math.ceil(totalHouses / 3));
-      const pedagogues = Math.max(1, Math.ceil(totalHouses / 2));
+      const pedagogues = Math.max(1, Math.ceil(residentsInHouses / 30));
       const masters = totalHouses <= 2 ? 1 : totalHouses <= 5 ? 2 : 4;
       const buildArea = totalHouses * 95;
 
